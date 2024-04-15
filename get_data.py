@@ -24,7 +24,7 @@ def find_news():
 
             current_year = str(datetime.now().date())[0:4] + " "
             current_month = int(str(datetime.now().date())[5:7])
-            current_date = str(int(str(datetime.now().date())[9:10])) + " "
+            current_date = str(int(str(datetime.now().date())[8:10])) + " "
             current_hour = str(datetime.now().isoformat())[11:13] + ":"
             current_minute = str(datetime.now().isoformat())[14:16] + ":"
             current_second = str(datetime.now().isoformat())[17:19]
