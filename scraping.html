@@ -7,7 +7,26 @@
     <title>Zaki Abdillah Website</title>
     <link rel="stylesheet" href="css/style.css">
     <link href="https://fonts.googleapis.com/css2?family=Roboto&family=Srisakdi&display=swap" rel="stylesheet">
+    <!-- Import library jquery-->
+    <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+    <!-- Kode Javascript-->
+    <script type="text/javascript">
+        $(function(){
+            //Mengambil data dari file data.json dengan fungsi $.get() JQuery
+            $.get('data.json',function(obj){
+                console.log(obj); // Add this line
+                var str = "<table border=1>";
+                str += "<tr><td>No</td><td>Judul Headline</td></tr>";
 
+                $.each(obj,function(n,data){
+                    str += "<tr><td>" + (n+1) + "</td>";
+                    str += "<td>" + data.JudulBerita + "</tr></td>";
+                });
+                str += "</tabel>";
+                $('#headline_json').html(str);
+            });
+        });
+    </script>
 </head>
 
 <body>
@@ -18,16 +37,16 @@
                 <img class="logo" src="img/logo.png" class=""/>
             </div>
             <ul>
-                <li><a href="#">Home</a></li>
+                <li><a href="index.html">Home</a></li>
                 <li><a href="profile.html">Profile</a></li>
                 <li><a href="skill.html">Skill</a></li>
                 <li><a href="etc.html">Other</a></li>
                 <li><a href="remain.html">Information</a></li>
-                <li><a href="scraping.html">Web Scraping 1</a></li>
+                <li><a href="#">Web Scraping 1</a></li>
             </ul>
             <div class="menu-toggle">
                 <input type="checkbox">
-                <span></span>
+                <span>Radit</span>
                 <span></span>
                 <span></span>   
             </div>
@@ -37,17 +56,13 @@
     <main>
         <div class="box flextwo">
             <article>
-                <h1 class="header1">Tentang Website</h1>
+                <h1 class="header1">Headline Republika Online</h1>
                 <p><br></p>
-                <p class="desc1">Assalamu'alaikum perkenalkan nama saya Zaki Abdillah dan website ini berisikan tentang informasi seputar saya. Silahkan pilih salah satu menu pada box di atas untuk mengetahui tentang saya. Terima Kasih</p>
+                <div id="headline_json"></div>
                 <p><br><br><br></p>
             </article>
             <h2 class="motto">Start where you are. Use what you have. Do what you can. (Arthur Ashe)</h2>
         </div>
-        <aside class="box flexone">
-            <img src="img/ZAKI.png" class="image"/>
-            <h5>Zaki Abdillah</h5>
-        </aside>
     </main>
     <footer class="box">
         Zaki Abdillah, Di depan Laptop 27 Februari 2024
